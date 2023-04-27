@@ -1,4 +1,7 @@
-class ExampleService {
+import { Bean } from 'express-beans';
+
+@Bean
+export default class ExampleService {
   private msg: string;
 
   constructor() {
@@ -9,14 +12,3 @@ class ExampleService {
     return this.msg;
   }
 }
-
-let service: ExampleService;
-
-const useExampleService = () => {
-  if (!service) {
-    service = new ExampleService();
-  }
-  return service;
-};
-
-export { useExampleService, ExampleService };

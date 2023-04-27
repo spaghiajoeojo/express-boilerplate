@@ -1,20 +1,22 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { mock } from 'vitest-mock-extended';
-import { livenessCheck, readinessCheck } from '@/routes/health';
+import HealthCheckRouter from '@/routes/HealthCheckRouter';
 
 describe('Healthcheck endpoints', () => {
   let req: Request;
   let res: Response;
-  let next: NextFunction;
+
+  let healthCheckRouter;
+
   beforeEach(() => {
     req = mock<Request>();
     res = mock<Response>();
-    next = mock<NextFunction>();
+    healthCheckRouter = new HealthCheckRouter();
   });
 
   test('liveness should return UP with status 200', async () => {
     // WHEN
-    await livenessCheck(req, res, next);
+    healthCheckRouter.livenessCheck(req, res);
 
     // THEN
     expect(res.send).toBeCalledWith({ status: 'UP', check: [] });
@@ -22,7 +24,7 @@ describe('Healthcheck endpoints', () => {
 
   test('readiness should return UP with status 200', async () => {
     // WHEN
-    await readinessCheck(req, res, next);
+    healthCheckRouter.readinessCheck(req, res);
 
     // THEN
     expect(res.send).toBeCalledWith({ status: 'UP', check: [] });

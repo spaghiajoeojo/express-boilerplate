@@ -16,6 +16,7 @@ WORKDIR /app
 
 COPY --from=builder /app/package.json /app/package-lock.json /app/dist ./
 
-RUN NODE_ENV=production npm ci
+ENV NODE_ENV=production
+RUN npm ci
 
 CMD npm run start:prod
