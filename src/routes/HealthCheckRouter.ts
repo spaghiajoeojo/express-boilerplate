@@ -9,7 +9,6 @@ export default class HealthCheckRouter {
   livenessCheck(_req: Request, res: Response) {
     res.send({
       status: 'UP',
-      check: [],
     });
   }
 
@@ -17,7 +16,6 @@ export default class HealthCheckRouter {
   readinessCheck(_req: Request, res: Response) {
     res.send({
       status: 'UP',
-      check: [],
     });
   }
 }

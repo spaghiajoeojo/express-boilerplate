@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { mock } from 'vitest-mock-extended';
+import { mock } from 'jest-mock-extended';
 import HealthCheckRouter from '@/routes/HealthCheckRouter';
 
 describe('Healthcheck endpoints', () => {
   let req: Request;
   let res: Response;
 
-  let healthCheckRouter;
+  let healthCheckRouter: HealthCheckRouter;
 
   beforeEach(() => {
     req = mock<Request>();
@@ -19,7 +19,7 @@ describe('Healthcheck endpoints', () => {
     healthCheckRouter.livenessCheck(req, res);
 
     // THEN
-    expect(res.send).toBeCalledWith({ status: 'UP', check: [] });
+    expect(res.send).toBeCalledWith({ status: 'UP' });
   });
 
   test('readiness should return UP with status 200', async () => {
@@ -27,6 +27,6 @@ describe('Healthcheck endpoints', () => {
     healthCheckRouter.readinessCheck(req, res);
 
     // THEN
-    expect(res.send).toBeCalledWith({ status: 'UP', check: [] });
+    expect(res.send).toBeCalledWith({ status: 'UP' });
   });
 });
