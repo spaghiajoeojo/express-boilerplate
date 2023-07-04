@@ -3,7 +3,7 @@ import { mock } from 'jest-mock-extended';
 import ExampleRouter from '@/routes/ExampleRouter';
 import Mock = jest.Mock;
 
-describe('Healthcheck endpoints', () => {
+describe('ExampleRouter', () => {
   let req: Request;
   let res: Response;
 
