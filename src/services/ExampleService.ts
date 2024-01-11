@@ -1,13 +1,16 @@
-import { Bean, Logger, InjectLogger } from 'express-beans';
+import {
+  Bean, Logger, InjectLogger, Setup,
+} from 'express-beans';
 
 @Bean
 export default class ExampleService {
-  private msg: string;
+  private msg!: string;
 
   @InjectLogger('example')
   private logger!: Logger;
 
-  constructor() {
+  @Setup
+  init() {
     this.logger.debug('initializing msg field');
     this.msg = 'hello world!';
   }
