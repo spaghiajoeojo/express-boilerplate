@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import ExampleRouter from '@/routes/ExampleRouter';
+import { ExampleRouter } from '@/routes/ExampleRouter';
 import Mock = jest.Mock;
 
 describe('ExampleRouter', () => {

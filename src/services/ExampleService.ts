@@ -3,7 +3,7 @@ import {
 } from 'express-beans';
 
 @Bean
-export default class ExampleService {
+export class ExampleService {
   private msg!: string;
 
   @InjectLogger('example')

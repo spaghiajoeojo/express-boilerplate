@@ -4,7 +4,7 @@ import {
 import { Route, RouterBean } from 'express-beans';
 
 @RouterBean('/n')
-export default class HealthCheckRouter {
+export class HealthCheckRouter {
   @Route('GET', '/live')
   livenessCheck(_req: Request, res: Response) {
     res.send({

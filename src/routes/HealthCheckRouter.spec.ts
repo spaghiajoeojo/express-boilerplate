@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { mock } from 'jest-mock-extended';
-import HealthCheckRouter from '@/routes/HealthCheckRouter';
+import { HealthCheckRouter } from '@/routes/HealthCheckRouter';
 
 describe('Healthcheck endpoints', () => {
   let req: Request;

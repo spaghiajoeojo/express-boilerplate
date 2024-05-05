@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { InjectBean, Route, RouterBean } from 'express-beans';
-import ExampleService from '@/services/ExampleService';
+import { ExampleService } from '@/services/ExampleService';
 
 @RouterBean('/example')
-export default class ExampleRouter {
+export class ExampleRouter {
   @InjectBean(ExampleService)
     exampleService!: ExampleService;
 
