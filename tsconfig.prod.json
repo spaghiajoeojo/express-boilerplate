@@ -7,6 +7,8 @@
     "lib": ["ESNext"],
     "moduleResolution": "NodeNext",
     "strict": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -28,5 +30,6 @@
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
+    "bin"
   ]
 }

@@ -5,7 +5,8 @@ import { ExampleService } from '@/services/ExampleService';
 @RouterBean('/example')
 export class ExampleRouter {
   @InjectBean(ExampleService)
-    exampleService!: ExampleService;
+    exampleService: ExampleService;
+
 
   @Route('GET', '/hello')
   hello(_req: Request, res: Response) {
