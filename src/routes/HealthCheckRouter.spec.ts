@@ -19,7 +19,7 @@ describe('Healthcheck endpoints', () => {
     healthCheckRouter.livenessCheck(req, res);
 
     // THEN
-    expect(res.send).toBeCalledWith({ status: 'UP' });
+    expect(res.send).toHaveBeenCalledWith({ status: 'UP' });
   });
 
   test('readiness should return UP with status 200', async () => {
@@ -27,6 +27,6 @@ describe('Healthcheck endpoints', () => {
     healthCheckRouter.readinessCheck(req, res);
 
     // THEN
-    expect(res.send).toBeCalledWith({ status: 'UP' });
+    expect(res.send).toHaveBeenCalledWith({ status: 'UP' });
   });
 });

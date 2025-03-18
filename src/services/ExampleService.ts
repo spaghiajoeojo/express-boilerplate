@@ -4,10 +4,11 @@ import {
 
 @Bean
 export class ExampleService {
-  private msg!: string;
+
+  private msg: string;
 
   @InjectLogger('example')
-  private logger!: Logger;
+  private logger: Logger;
 
   @Setup
   init() {

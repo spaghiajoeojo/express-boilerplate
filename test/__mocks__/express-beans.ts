@@ -1,6 +1,6 @@
 import { mock } from 'jest-mock-extended';
 
-const { ExpressBeans, types } = jest.requireActual('express-beans');
+const { ExpressBeans, types } = jest.requireActual('express-beans/cjs');
 const noop = () => { /* do nothing */ };
 
 const ExpressBeansMock = mock<typeof ExpressBeans>();

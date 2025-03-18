@@ -17,14 +17,14 @@ describe('ExampleRouter', () => {
 
   test('hello should return a message', async () => {
     // GIVEN
-    const serviceMethodMock: Mock = exampleRouter.exampleService.example as Mock;
+    const serviceMethodMock: Mock = jest.mocked(exampleRouter.exampleService.example);
     serviceMethodMock.mockReturnValue('hello world!');
 
     // WHEN
     exampleRouter.hello(req, res);
 
     // THEN
-    expect(exampleRouter.exampleService.example).toBeCalled();
-    expect(res.end).toBeCalledWith('hello world!');
+    expect(exampleRouter.exampleService.example).toHaveBeenCalled();
+    expect(res.end).toHaveBeenCalledWith('hello world!');
   });
 });

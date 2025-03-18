@@ -5,23 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/main.ts",
-    "build": "rimraf dist && tsc -p tsconfig.prod.json && tsc-alias -p tsconfig.prod.json",
+    "build": "rimraf dist && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --no-fix src test",
     "start:preview": "cross-env NODE_ENV=production nodemon --enable-source-maps ./dist/main.js",
     "start:prod": "NODE_ENV=production nodemon --enable-source-maps main.js",
     "docker:build": "docker build . -t $npm_package_name",
     "clean": "rimraf dist && rimraf node_modules",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "jest --runInBand",
+    "coverage": "jest --runInBand --coverage"
   },
   "devDependencies": {
     "@types/express": "5.0.0",
     "@types/jest": "29.5.14",
     "@types/node": "22.13.10",
     "cross-env": "7.0.3",
-    "esbuild": "0.25.1",
     "jest": "29.7.0",
     "jest-mock-extended": "3.0.7",
+    "rimraf": "^6.0.1",
     "ts-jest": "29.2.6",
     "tsc-alias": "1.8.11",
     "tsconfig-paths": "4.2.0",
@@ -29,7 +29,7 @@
     "typescript": "5.8.2"
   },
   "dependencies": {
-    "express-beans": "^2.0.0-9f65f7-dev",
+    "express-beans": "2.0.0",
     "nodemon": "3.1.9",
     "ts-node": "10.9.2",
     "tsx": "^4.19.3"

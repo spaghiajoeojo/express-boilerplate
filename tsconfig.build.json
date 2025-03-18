@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2023",
     "allowJs": true,
     "useDefineForClassFields": true,
-    "module": "CommonJS",
+    "module": "Preserve",
     "lib": [
       "ESNext"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
-    "strictPropertyInitialization": false,
     "resolveJsonModule": true,
+    "strictPropertyInitialization": false,
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
@@ -20,11 +20,14 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "noEmit": true,
+    "declaration": true,
     "sourceMap": true,
+    "outDir": "dist",
+    "declarationDir": "dist",
     "paths": {
-      "@/*": ["./src/*"],
-      "@test/*": ["./test/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "types": [
       "node"
@@ -34,12 +37,14 @@
     ]
   },
   "include": [
-    "src/**/*",
-    "test/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "bin"
-  ]
+    "**/*.spec.ts",
+  ],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
 }
